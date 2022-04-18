@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DatabaseService } from '../services/database.service';
 
 @Component({
   selector: 'app-home',
@@ -7,13 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
- tab = ["Algérie","Maroc","Tunisie"]
- n = 'd'
-  constructor() { }
+  constructor(private db: DatabaseService) {
+    
+   }
 
   ngOnInit(): void {
   }
 
- 
+ get(){
+   this.db.getData().subscribe(next => {
+      console.log(next)
+   }, 
+   error => {
+    console.log(error)
+
+   },
+   () => {
+    console.log("complete")
+   })
+ }
 
 }
