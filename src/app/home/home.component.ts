@@ -7,15 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  name = "Abderrahmen MELIANI";
-
+ tab = ["Algérie","Maroc","Tunisie"]
+ n = 'd'
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  get( ) {
-    console.log(this.name)
-  }
+ 
 
 }
