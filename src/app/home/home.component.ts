@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { DatabaseService } from '../services/database.service';
 
@@ -8,24 +9,16 @@ import { DatabaseService } from '../services/database.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private db: DatabaseService) {
-    
+  dataArray:any
+
+  constructor(private http: HttpClient) {
    }
 
   ngOnInit(): void {
   }
-
- get(){
-   this.db.getData().subscribe(next => {
-      console.log(next)
-   }, 
-   error => {
-    console.log(error)
-
-   },
-   () => {
-    console.log("complete")
-   })
- }
+ 
+  get(f:any){
+    console.log(f.value)
+  }
 
 }
